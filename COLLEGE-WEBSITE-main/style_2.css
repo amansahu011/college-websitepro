@@ -1,0 +1,363 @@
+/* CSS File for Amenities */
+body {
+  background-color: rgb(241, 241, 241);
+}
+.header {
+  background-color: rgb(0, 0, 73);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+.header a {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .header .col-lg-6 {
+    width: auto;
+  }
+  .header a {
+    font-size: 13px !important;
+  }
+  .contact {
+    font-size: 13px !important;
+  }
+}
+@media screen and (max-width: 840px) {
+  .header .col-lg-6 {
+    width: auto;
+  }
+  .header a {
+    margin-left: 10px;
+    font-size: 8px !important;
+  }
+  .contact {
+    font-size: 8px !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .header .col-lg-6 {
+    width: auto;
+  }
+  .header a {
+    margin-left: 2px !important;
+    font-size: 7px !important;
+  }
+  .contact {
+    font-size: 7px !important;
+  }
+}
+.dd:hover {
+  background-color: rgb(0, 0, 73);
+}
+.dropdown {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all ease-in-out 0.3s;
+  border-radius: 12px;
+}
+.dropdown a {
+  font-weight: 500;
+}
+.dropdown:hover a {
+  color: black !important;
+}
+.dropdown:hover .anchor {
+  color: white !important;
+}
+
+.link:hover a {
+  color: white !important;
+}
+.drop {
+  margin: 0;
+  padding: 0;
+}
+.drop:hover {
+  background-color: lightgray;
+}
+.dropdown-menu li {
+  font-size: 14px;
+}
+.img {
+  height: 20rem;
+  position: relative;
+  color: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+.overlay h1 {
+  font-size: 4 rem;
+  margin-left: 50px;
+}
+.overlay span {
+  font-size: 1.6rem;
+  margin-left: 8rem;
+  font-weight: 200;
+  border: 1px solid white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px;
+}
+.card {
+  border: 1px solid rgb(0, 0, 73);
+  transition: all ease 0.3s;
+}
+.card-body h5 {
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+.card:hover {
+  transform: scale(1.02);
+  background-color: rgb(0, 0, 73);
+  color: white;
+  box-shadow: 0 0 10px 0.5px grey;
+}
+.descp {
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px lightgray !important;
+  width: 90%;
+  background-color: white;
+}
+footer a,
+p {
+  color: white !important;
+}
+.section-title {
+  display: inline !important;
+  font-size: 15px;
+  border: 1px solid rgb(0, 0, 73);
+  padding: 10px;
+  border-radius: 5px;
+  border-left: 5px solid rgb(0, 0, 73);
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 0 5px 1px gray;
+}
+
+.section-title:hover {
+  background-color: rgb(0, 0, 73);
+  color: white;
+  border-left: 5px white solid;
+}
+.section-title-1 {
+  display: inline !important;
+  border: 1px solid rgb(0, 0, 73);
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 0 5px 1px gray;
+}
+.section-title-1:hover {
+  background-color: rgb(0, 0, 73);
+  color: white;
+}
+.links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  transition: all ease-in-out 0.3s;
+}
+
+.links li a:hover {
+  color: blue;
+  font-weight: 500;
+}
+.nav-scroller {
+  font-size: 12px;
+  color: rgb(0, 0, 73);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.active {
+  background-color: rgb(0, 0, 73);
+  color: white !important;
+  font-weight: 500;
+  border-radius: 10px;
+}
+.sticky-top {
+  top: 0;
+  z-index: 3000px;
+  margin-bottom: 15px;
+}
+.sticky-top + .descp {
+  padding-top: 60px;
+}
+
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #1159b1;
+}
+
+.social-media img {
+  margin: 5px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.mail-icon,
+.call-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.contact a {
+  margin-right: 15px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.contact a:hover {
+  color: white;
+}
+
+.navbar {
+  border: 0 !important;
+  border-bottom: 1.2px black;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.448);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mitrc-logo {
+  margin-left: 15px;
+}
+
+.active {
+  font-size: 12px;
+  font-weight: 700 !important;
+}
+
+.link:hover {
+  color: black !important;
+}
+
+.icon {
+  margin: 5px;
+  background-color: white;
+  border-radius: 50%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  width: 45px;
+}
+
+.icon-1 {
+  margin: 5px;
+  background-color: white;
+  border-radius: 50%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3px;
+  padding-top: 4px;
+  width: 45px;
+}
+
+a {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.nav1 {
+  border-top: 1px solid black !important;
+  background-color: rgb(227, 36, 36);
+  font-weight: 500 !important;
+}
+
+.nav .nl {
+  color: rgb(0, 0, 73) !important;
+  font-weight: 500;
+}
+
+.college-name {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.college-name::after {
+  content: "Estd Year : 2007  I  REAP Code : 060  I Best Engineering College in Rajasthan";
+  font-size: 15px;
+  color: brown;
+  position: absolute;
+  transform: translateY(0px);
+  bottom: 0;
+  left: 15%;
+}
+
+.virtual-tour-link {
+  margin-right: 35px;
+  color: red;
+  font-weight: 700 !important;
+  animation: breathing 3s infinite;
+}
+
+.virtual-tour-link:hover {
+  color: orangered;
+}
+
+@keyframes breathing {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.carousel-item img {
+  height: 700px;
+  object-fit: contain;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.nav-item a{
+  font-size: 10px !important;
+  color: white !important;
+  margin: 0 !important;
+  text-align: justify;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="../css/feedback.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Feedback:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+
+    <script>
+        // Add event listener to form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const responseMessage = document.getElementById('responseMessage');
+
+            // Check if all fields are filled out
+            if (name && email && message) {
+                // Send feedback data to the server using fetch
+                fetch('http://localhost:8080/api/submit-feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, message }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    // Display success message
+                    responseMessage.classList.add("success");
+                    responseMessage.classList.remove("error");
+                    responseMessage.textContent = data.message;
+                    document.getElementById('feedbackForm').reset(); // Reset the form
+                })
+                .catch((error) => {
+                    // Display error message
+                    responseMessage.classList.add("error");
+                    responseMessage.classList.remove("success");
+                    responseMessage.textContent = "There was an error submitting your feedback.";
+                });
+            } else {
+                // Display error message if any field is empty
+                responseMessage.classList.add("error");
+                responseMessage.classList.remove("success");
+                responseMessage.textContent = "Please fill out all fields.";
+            }
+        });
+    </script>    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Event</title>
+    <link rel="stylesheet" href="../css/createevent.css"> <!-- Link to CSS -->
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Create New Event</h2>
+        <form id="addEventForm">
+            <label for="title">Event Title</label>
+            <input type="text" id="title" required>
+
+            <label for="description">Event Description</label>
+            <textarea id="description" rows="4" required></textarea>
+
+            <label for="date">Event Date</label>
+            <input type="date" id="date" required>
+
+            <label for="venue">Event Venue</label>
+            <input type="text" id="venue" required>
+
+            <label for="imageUrl">Event Image URL (Optional)</label>
+            <input type="image" id="imageUrl">
+
+            <div class="eligibility-content">
+                <label for="course">Course Name:</label>
+                <input type="text" id="course" placeholder="Enter course name" />
+                
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" placeholder="Enter branch name" />
+              </div>
+
+            <button type="submit">Add Event</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("addEventForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const event = {
+                title: document.getElementById("title").value,
+                description: document.getElementById("description").value,
+                date: document.getElementById("date").value,
+                venue: document.getElementById("venue").value,
+                imageUrl: document.getElementById("imageUrl").value
+            };
+
+            fetch("http://localhost:8080/api/events", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(event)
+            })
+            .then(res => res.text())
+            .then(msg => {
+                alert("Event added successfully!");
+                window.location.href = "events.html"; // Redirect to events page
+            })
+            .catch(err => {
+                console.error("Error adding event:", err);
+                alert("Failed to add event. Try again.");
+            });
+        });
+    </script>
+
+</body>
+</html>

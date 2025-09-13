@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-signup-container {
+      width: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .button-box {
+      display: flex;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 15px;
+      cursor: pointer;
+      background-color: #ddd;
+      border: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .toggle-btn.active {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .form-box {
+      padding: 30px;
+      display: none;
+    }
+
+    .form-box.active {
+      display: block;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-box button:hover {
+      background-color: #2980b9;
+    }
+
+    .form-title {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-signup-container">
+    <div class="button-box">
+      <button class="toggle-btn active" onclick="showForm('login')">Login</button>
+      <button class="toggle-btn" onclick="showForm('signup')">Signup</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login" class="form-box active">
+      <div class="form-title">Login</div>
+      <input type="email" placeholder="Email" required id="loginEmail">
+      <input type="password" placeholder="Password" required id="loginPassword">
+      <button type="button" onclick="login()">Login</button>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup" class="form-box">
+      <div class="form-title">Signup</div>
+      <input type="text" placeholder="First Name" required id="firstName">
+      <input type="text" placeholder="Last Name" required id="lastName">
+      <input type="email" placeholder="Email" id="signupEmail" required>
+      <input type="password" placeholder="Password" id="signupPassword" required>
+      <input type="password" placeholder="Confirm Password" id="signupConfirm" required>
+      <button type="button" onclick="signup()">Signup</button>
+    </div>
+  </div>
+
+  <script>
+    function showForm(formType) {
+      document.querySelectorAll('.form-box').forEach(form => form.classList.remove('active'));
+      document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(formType).classList.add('active');
+      document.querySelector(`[onclick="showForm('${formType}')"]`).classList.add('active');
+    }
+
+    function login() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      fetch("https://d91f-157-38-245-63.ngrok-free.app/authenticate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Login failed");
+        }
+        return res.json();
+      })
+      .then(data => {
+        localStorage.setItem("user", JSON.stringify(data));
+        alert("Login Successful!");
+        window.location.href = "createproduct.html"; // Redirect after login
+      })
+      .catch(err => {
+        console.error("Error during login:", err);
+        alert("Login failed. Please check your credentials.");
+      });
+    }
+
+    function signup() {
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+      const confirmPassword = document.getElementById("signupConfirm").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      fetch("https://d91f-157-38-245-63.ngrok-free.app/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+          acceptTerms: "true"
+        })
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Signup failed");
+        }
+        return res.json();
+      })
+      .then(data => {
+        alert("Signup Successful! You can now login.");
+        showForm('login');
+      })
+      .catch(err => {
+        console.error("Signup Error:", err);
+        alert("Signup failed. Please check your info.");
+      });
+    }
+  </script>
+</body>
+</html>

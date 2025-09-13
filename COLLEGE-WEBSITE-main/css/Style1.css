@@ -1,0 +1,52 @@
+body {
+    background: url('../img/index.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: -1;
+  }
+  
+  .form-container {
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: black;
+  }
+  
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 120px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+  }
+  
+  .btn-primary {
+    background-color: black;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #002244;
+  }
+  

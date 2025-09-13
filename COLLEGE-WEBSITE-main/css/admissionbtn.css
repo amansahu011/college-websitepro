@@ -1,0 +1,33 @@
+.admission-btn {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .admission-btn:hover {
+    background-color: black;
+    transform: scale(1.05);
+  }
+
+  .modal-content {
+    border-radius: 20px;
+  }
+
+  .modal-header {
+    background-color:black;
+    color: white;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .modal-footer {
+    background-color: #f8f9fa;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Admission Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/Style1.css">
+  
+</head>
+<body>
+
+  <div class="form-container container mt-4">
+    <!-- College Logo -->
+    <img src="../Icons/MITRC_logo.png" alt="College Logo" class="logo d-block mx-auto mb-3" />
+
+    <h2 class="form-title text-center mb-4">Mitrc Admission Form</h2>
+
+    <!-- Success Message
+    <div id="successMessage" class="alert alert-success text-center success-message">
+      Form submitted successfully!
+    </div> -->
+
+    
+
+    <form id="admissionForm">
+      <!-- Personal Info -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="fullName" required>
+        </div>
+        <div class="col-md-6">
+          <label for="dob" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="fatherName" class="form-label">Father's Name</label>
+          <input type="text" class="form-control" id="fatherName" required>
+        </div>
+        <div class="col-md-6">
+          <label for="fatherPhone" class="form-label">Father's Phone Number</label>
+          <input type="tel" class="form-control" id="fatherPhone" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="guardianName" class="form-label">Guardian's Name</label>
+        <input type="text" class="form-control" id="guardianName">
+      </div>
+
+      <!-- Academic Info -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="marks10" class="form-label">10th Marks (%)</label>
+          <input type="number" class="form-control" id="marks10" step="0.01" required>
+        </div>
+        <div class="col-md-6">
+          <label for="marks12" class="form-label">12th Marks (%)</label>
+          <input type="number" class="form-control" id="marks12" step="0.01" required>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" required>
+        </div>
+      </div>
+
+      <!-- City, District, State -->
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="city" class="form-label">State</label>
+          <input type="text" class="form-control" id="city" required>
+        </div>
+        <div class="col-md-4">
+          <label for="district" class="form-label">City</label>
+          <input type="text" class="form-control" id="district" required>
+        </div>
+        <div class="col-md-4">
+          <label for="state" class="form-label">Pincode</label>
+          <input type="text" class="form-control" id="state" required>
+        </div>
+      </div>
+
+      <!-- Course & Branch -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="course" class="form-label">Select Course</label>
+          <select class="form-select" id="course" required>
+            <option selected disabled value="">Choose Course...</option>
+            <option>B.Tech</option>
+            <option>B.Sc</option>
+            <option>B.Com</option>
+            <option>BA</option>
+            <option>MBA</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="branch" class="form-label">Select Branch</label>
+          <select class="form-select" id="branch" required>
+            <option selected disabled value="">Choose Branch...</option>
+            <option>Computer Science (CSE)</option>
+            <option>Electronics (ECE)</option>
+            <option>Mechanical (ME)</option>
+            <option>Civil (CE)</option>
+            <option>Information Technology (IT)</option>
+            <option>Finance</option>
+            <option>Marketing</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Other Info -->
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="gender" class="form-label">Gender</label>
+          <select class="form-select" id="gender" required>
+            <option selected disabled value="">Select...</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" id="category" required>
+            <option selected disabled value="">Select...</option>
+            <option>General</option>
+            <option>OBC</option>
+            <option>SC</option>
+            <option>ST</option>
+            <option>EWS</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="nationality" class="form-label">Nationality</label>
+          <input type="text" class="form-control" id="nationality" required>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="aadhar" class="form-label">Aadhar Number</label>
+          <input type="text" class="form-control" id="aadhar" maxlength="12" required>
+        </div>
+        <div class="col-md-6">
+          <label for="blood" class="form-label">Blood Group</label>
+          <select class="form-select" id="blood" required>
+            <option selected disabled value="">Select...</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+      </div>
+
+    </form>
+  </div>
+
+
+
+  <script>
+    document.getElementById("admissionForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Form reload hone se rokta hai
+    
+      // Form ke saare input values uthao
+      const formData = {
+        fullName: document.getElementById("fullName").value,
+        dob: document.getElementById("dob").value,
+        fatherName: document.getElementById("fatherName").value,
+        fatherPhone: document.getElementById("fatherPhone").value,
+        guardianName: document.getElementById("guardianName").value,
+        marks10: parseFloat(document.getElementById("marks10").value),
+        marks12: parseFloat(document.getElementById("marks12").value),
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        city: document.getElementById("city").value,
+        district: document.getElementById("district").value,
+        state: document.getElementById("state").value,
+        course: document.getElementById("course").value,
+        branch: document.getElementById("branch").value,
+        gender: document.getElementById("gender").value,
+        category: document.getElementById("category").value,
+        nationality: document.getElementById("nationality").value,
+        aadhar: document.getElementById("aadhar").value,
+        blood: document.getElementById("blood").value,
+      };
+    
+      // Fetch POST API call
+     fetch("https://9273-2409-40d4-1012-8b47-95b-a381-5840-3c74.ngrok-free.app/api/admission/submit", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+})
+.then((response) => {
+  if (response.ok) {
+    alert("Form submitted successfully!");
+    document.getElementById("admissionForm").reset();
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+})
+.catch((error) => {
+  console.error("Error:", error);
+  alert("Error submitting form. Check console.");
+});
+
+    </script>
+    
+
+ 
+</body>
+</html>
